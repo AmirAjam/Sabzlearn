@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin 'tailwind-scrollbar';
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+    font-family: "Vazirmatn-Bold";
+    src: url(../../../public/fonts/Vazirmatn-Bold.woff2);
+}
+
+@font-face {
+    font-family: "Vazirmatn-Regular";
+    src: url(../../../public/fonts/Vazirmatn-Regular.woff2);
+}
+
+@font-face {
+    font-family: "Vazirmatn-Medium";
+    src: url(../../../public/fonts/Vazirmatn-Medium.woff2);
+}
+
+@theme {
+    --font-Vazirmatn-Bold: "Vazirmatn-Bold";
+    --font-Vazirmatn-Regular: "Vazirmatn-Regular";
+    --font-Vazirmatn-Medium: "Vazirmatn-Medium";
+
+    --color-primary: #1eb35b;
+    --color-dark: #333c4c;
+    --color-darker:#242a38;
+
+    --color-textColor: #a1a5c1;
+    --color-second-textColor: #dfe2f3;
+}
+
+@utility container {
+    margin: 0 auto;
+    padding: 0 1rem;
+}
