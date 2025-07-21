@@ -16,6 +16,8 @@ import Footer from "../../components/Footer/Footer"
 import CartSection from "../../components/Header/CartSection/CartSection"
 
 const Home = () => {
+
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isCoverOpen, setIsCovertOpen] = useState(false)

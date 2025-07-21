@@ -9,9 +9,9 @@ import CartSection from "./CartSection/cartSection"
 import Cover from "../Ui/Cover/Cover"
 
 import icons from "../../Icons"
-import Input from "../Ui/Input/Input"
 
 const NavBar = () => {
+
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isCartOpen, setIsCartOpen] = useState(false)
     const [isCoverOpen, setIsCovertOpen] = useState(false)
@@ -42,7 +42,7 @@ const NavBar = () => {
                 </div>
                 <div className="w-16 md:w-full md:flex gap-6">
                     <Link to="/" className="w-16 lg:w-18">
-                        <img src="public/images/logo/logo.png" alt="" />
+                        <img src="/public/images/logo/logo.png" alt="" />
                     </Link>
                     <DesktopMenu />
                 </div>

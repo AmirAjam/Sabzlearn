@@ -7,8 +7,8 @@ import Cart from "./pages/Cart/Cart";
 const routes = [
     {path:"/" , element:<Home />},
     {path:"/blog" , element:<Blog />},
-    {path:"/course" , element:<Course />},
-    {path:"/category" , element:<Category />},
+    {path:"/course/:name" , element:<Course />},
+    {path:"/category/:filter" , element:<Category />},
     {path:"/cart" , element:<Cart />},
 ]
 
