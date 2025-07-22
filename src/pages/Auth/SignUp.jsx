@@ -1,16 +1,21 @@
-import React from 'react'
+import AuthBox from './AuthBox'
+import AuthInput from './AuthInput'
+import PrimaryButton from '../../components/Ui/Buttons/PrimaryButton'
+import { Link } from 'react-router-dom'
 
 const SignUp = () => {
   return (
     <main className='flex flex-col justify-center items-center h-[100vh]'>
       <AuthBox title="عضویت"
         subTitle="قبلا ثبت نام کرده اید؟"
-        AuthLink={<Link to="/signup" className='text-primary font-Vazirmatn-Bold'>ثبت نام کنید</Link>}>
-        <AuthInput />
+        AuthLink={<Link to="/login" className='text-primary font-Vazirmatn-Bold'>وارد شوید</Link>}>
+        <AuthInput placeHolder="نام کاربری" icon="User"/>
+        <AuthInput placeHolder="شماره موبایل" icon="Phone"/>
+        <AuthInput placeHolder="آدرس ایمیل" icon="Email"/>
+        <AuthInput placeHolder="رمز عبور" icon="Lock"/>
         <div className='mt-5'>
           <PrimaryButton text="ادامه" />
         </div>
-        <Link className='mt-5 block text-gray-500 text-sm'>ورود با ایمیل</Link>
       </AuthBox>
     </main>
   )

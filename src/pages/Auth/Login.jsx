@@ -8,9 +8,10 @@ const Login = () => {
     return (
         <main className='flex flex-col justify-center items-center h-[100vh]'>
             <AuthBox title="ورود با موبایل"
-                subTitle="حساب کاربری ندارید؟" 
+                subTitle="حساب کاربری ندارید؟"
                 AuthLink={<Link to="/signup" className='text-primary font-Vazirmatn-Bold'>ثبت نام کنید</Link>}>
-                <AuthInput />
+                <AuthInput placeHolder="شماره موبایل" icon="Phone"/>
+
                 <div className='mt-5'>
                     <PrimaryButton text="ادامه" />
                 </div>
