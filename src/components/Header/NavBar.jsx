@@ -6,6 +6,7 @@ import { useTheme } from "../../Contexts/ThemeContext"
 import DesktopMenu from "../Menu/DesktopMenu"
 import MobileMenu from "../Menu/MobileMenu"
 import CartSection from "./CartSection/cartSection"
+import PrimaryButton from "../Ui/Buttons/PrimaryButton"
 import Cover from "../Ui/Cover/Cover"
 
 import icons from "../../Icons"
@@ -61,9 +62,12 @@ const NavBar = () => {
                         <icons.ShoppingBasket onClick={changeCartStatus} className="text-3xl cursor-pointer" />
                         <CartSection isCartOpen={isCartOpen} />
                     </div>
-                    <div className="bg-gray-100 dark:bg-dark p-3 rounded-full hidden md:block">
+                    <div className="bg-gray-100 dark:bg-dark p-3 rounded-full md:block hidden!">
                         <icons.User className="text-2xl cursor-pointer" />
                     </div>
+                    <Link to="/login" className="md:block hidden w-42 text-sm">
+                        <PrimaryButton text="ورود یا ثبت نام" icon="User"/>
+                    </Link>
                 </div>
             </nav>
             <MobileMenu isMenuOpen={isMenuOpen} changeTheme={toggleTheme} />

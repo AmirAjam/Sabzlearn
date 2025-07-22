@@ -14,8 +14,146 @@ import AboutUs from "./AboutUsSection/AboutUs"
 import ArticleSection from "../../components/Articles/ArticleSection"
 import Footer from "../../components/Footer/Footer"
 import CartSection from "../../components/Header/CartSection/CartSection"
+import PrimaryButton from "../../components/Ui/Buttons/PrimaryButton"
 
 const Home = () => {
+
+  const courses = [
+    {
+      id: 2,
+      name: "آموزش ساخت ربات تلگرام با پایتون",
+      desc: "یادگیری ساخت ربات تلگرامی از صفر تا پروژه عملی با استفاده از Python",
+      teacher: "مهرشاد براتی",
+      price: 1600000,
+      off: 10,
+      finalPrice: 1440000,
+      slug: "telegram-bot-python",
+      studentsCount: 850
+    },
+    {
+      id: 3,
+      name: "آموزش جامع لینوکس برای برنامه نویسان",
+      desc: "آموزش لینوکس برای توسعه‌دهندگان، مناسب برای استفاده در سرور و امنیت",
+      teacher: "مهدی شریفی",
+      price: 1900000,
+      off: 20,
+      finalPrice: 1520000,
+      slug: "linux",
+      studentsCount: 620
+    },
+    {
+      id: 4,
+      name: "آموزش توسعه وردپرس (جامع)",
+      desc: "طراحی سایت با وردپرس، از قالب‌سازی تا افزونه‌نویسی پیشرفته",
+      teacher: "امیر طاهرخانی",
+      price: 5000000,
+      off: 50,
+      finalPrice: 2500000,
+      slug: "wordpress",
+      studentsCount: 910
+    },
+    {
+      id: 5,
+      name: "آموزش کاربردی Bash Script",
+      desc: "اسکریپت‌نویسی و اتوماسیون کارها با Bash برای توسعه‌دهندگان",
+      teacher: "مهدی شریفی",
+      price: 250000,
+      off: 0,
+      finalPrice: 250000,
+      slug: "bash-script",
+      studentsCount: 400
+    },
+    {
+      id: 6,
+      name: "آموزش جامع زبان انگلیسی ویژه برنامه‌نویسان",
+      desc: "زبان انگلیسی کاربردی برای توسعه‌دهندگان، مناسب جهت یادگیری مستمر در مسیر برنامه‌نویسی",
+      teacher: "بهادر عرب",
+      price: 11000000,
+      off: 0,
+      finalPrice: 11000000,
+      slug: "english-for-developers",
+      studentsCount: 730
+    },
+    {
+      id: 7,
+      name: "تکنیک‌های قرارداد نویسی برای برنامه نویسان",
+      desc: "مهارت‌های تنظیم قرارداد حرفه‌ای برای فریلنسرها و برنامه‌نویسان",
+      teacher: "محمدامین سعیدی راد",
+      price: 800000,
+      off: 10,
+      finalPrice: 720000,
+      slug: "developer-contracts",
+      studentsCount: 520
+    },
+    {
+      id: 8,
+      name: "بازی سازی تحت وب با JS",
+      desc: "ساخت بازی‌های وب با HTML، CSS و JavaScript به‌صورت پروژه‌محور",
+      teacher: "مهرشاد براتی",
+      price: 1200000,
+      off: 70,
+      finalPrice: 360000,
+      slug: "web-game-js",
+      studentsCount: 670
+    },
+    {
+      id: 9,
+      name: "آموزش کاربردی ESLint",
+      desc: "پیکربندی و استفاده از ESLint برای نوشتن کدهای JS تمیز و بدون خطا",
+      teacher: "محمدامین سعیدی راد",
+      price: 200000,
+      off: 0,
+      finalPrice: 200000,
+      slug: "eslint",
+      studentsCount: 320
+    },
+    {
+      id: 10,
+      name: "آموزش انیمیشن‌سازی فرانت‌اند با GSAP و Three.js",
+      desc: "ساخت انیمیشن‌های سه‌بعدی و جذاب برای وب با GSAP و Three.js",
+      teacher: "مهرشاد براتی",
+      price: 1400000,
+      off: 70,
+      finalPrice: 420000,
+      slug: "gsap-threejs",
+      studentsCount: 510
+    },
+    {
+      id: 11,
+      name: "نمایش نقشه‌های تعاملی با Leaflet.js",
+      desc: "پیاده‌سازی نقشه تعاملی با کتابخانه Leaflet.js به‌صورت پروژه‌محور",
+      teacher: "مهرشاد براتی",
+      price: 900000,
+      off: 70,
+      finalPrice: 270000,
+      slug: "leaflet-js",
+      studentsCount: 430
+    },
+    {
+      id: 12,
+      name: "آموزش جامع دیزاین‌پترن‌ها برای برنامه‌نویسان",
+      desc: "آشنایی با الگوهای طراحی جهت نوشتن کدهایی مقیاس‌پذیر و قابل‌نگهداری",
+      teacher: "محمدامین سعیدی راد",
+      price: 1200000,
+      off: 70,
+      finalPrice: 360000,
+      slug: "design-patterns",
+      studentsCount: 760
+    },
+    {
+      id: 13,
+      name: "آموزش جامع PHP از صفر + پروژه‌محور",
+      desc: "دوره PHP کامل با پروژه‌های کاربردی برای ورود به بازار کار",
+      teacher: "معین باغشیخی",
+      price: 5000000,
+      off: 70,
+      finalPrice: 1500000,
+      slug: "php",
+      studentsCount: 890
+    }
+  ];
+
+
 
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -56,9 +194,12 @@ const Home = () => {
               <icons.Moon onClick={toggleTheme} className="text-xl hidden md:block dark:hidden cursor-pointer" />
               <div className="relative">
                 <icons.ShoppingBasket onClick={changeCartStatus} className="text-3xl cursor-pointer" />
-                <CartSection isCartOpen={isCartOpen}/>
+                <CartSection isCartOpen={isCartOpen} />
               </div>
-              <icons.User className="text-2xl hidden md:block cursor-pointer" />
+              <Link to="/login" className="md:block hidden w-42 text-sm">
+                <PrimaryButton text="ورود یا ثبت نام" icon="User" />
+              </Link>
+              <icons.User className="text-2xl hidden! md:block cursor-pointer " />
             </div>
           </nav>
           <h1 className="text-center text-lg font-Vazirmatn-Bold mt-14 md:text-4xl md:font-bold">سبزلرن، اولین گام برنامه‌نویس شدن</h1>
@@ -122,13 +263,13 @@ const Home = () => {
       </header>
 
       <main>
-        <Courses />
+        <Courses courses={courses} />
         <RoadMap />
-        <CourseSlider title="پرطرفدار ترین دوره ها" primaryTitle={"دوره های محبوب و پروژه محور سبزلرن"} />
+        <CourseSlider title="پرطرفدار ترین دوره ها" primaryTitle={"دوره های محبوب و پروژه محور سبزلرن"} courses={courses.slice(6)} />
         <AboutUs />
-        <CourseSlider title="جدیدتریــن ها" primaryTitle={"دوره‌های جدید، فرصت‌های نو"} />
+        <CourseSlider title="جدیدتریــن ها" primaryTitle={"دوره‌های جدید، فرصت‌های نو"} courses={courses.slice(5)} />
         <ArticleSection />
-        <Cover onClick={coverClickHandler} coverStatus={isCoverOpen}/>
+        <Cover onClick={coverClickHandler} coverStatus={isCoverOpen} />
       </main>
       <Footer />
 

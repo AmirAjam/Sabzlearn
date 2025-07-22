@@ -83,10 +83,11 @@ const MobileMenu = ({ isMenuOpen, changeTheme }) => {
             ]
         }
     ]
+
     return (
         <div className={`fixed inset-y-0 w-64 z-50 bg-white dark:bg-darker dark:text-white text-gray-900 -right-64 duration-300
             ${isMenuOpen ? "right-0" : "-right-64 "}`} >
-            <div className='bg-gray-100 dark:bg-dark p-4 flex justify-between items-center'>
+            <div className='bg-gray-100 dark:bg-dark p-4 flex justify-between items-center hidden'>
                 <div className='flex gap-2.5 items-center'>
                     <Link>
                         <img id='user-image' src="/public/images/user/user.jpg" className='size-14 rounded-full' alt="" />
@@ -97,6 +98,9 @@ const MobileMenu = ({ isMenuOpen, changeTheme }) => {
                     <icons.ArrowLeft className='text-xl' />
                 </Link>
             </div>
+            <Link to="/login" className='bg-sky-500/20 block p-4 text-center text-sky-500 font-Vazirmatn-Bold'>
+                ورود یا ثبت نام
+            </Link>
             <div className='py-4 px-8 mt-4'>
                 <p className='text-primary'>دسترسی سریع</p>
                 <ul className='mt-2 text-sm border-b border-gray-300/80 pb-4'>
@@ -118,7 +122,7 @@ const MobileMenu = ({ isMenuOpen, changeTheme }) => {
             <div className='px-8'>
                 <p className='text-primary'>دسته بندی ها</p>
                 <ul className='mt-2 text-sm border-b border-gray-300/80 pb-4'>
-                    {menu.map(item => <MobileMenuItem menuItem={item} key={item.id}/>)}
+                    {menu.map(item => <MobileMenuItem menuItem={item} key={item.id} />)}
                 </ul>
                 <div className=''>
                     <div onClick={changeTheme} className='flex mt-5 items-center gap-2 dark:hidden'>

@@ -91,7 +91,6 @@ const DesktopMenu = () => {
                  group-hover/sub-menu:visible duration-200 '>
                     <div className='bg-white dark:bg-darker text-gray-800 dark:text-white w-48 rounded-lg 
                         hover:rounded-l-none shadow-xl relative'>
-
                         {menu.map(item => {
                             return (
                                 <div className=' group/open'>

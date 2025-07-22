@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation, Autoplay } from 'swiper/modules';
 
-const CourseSlider = ({ title, primaryTitle }) => {
+const CourseSlider = ({ title, primaryTitle,courses }) => {
     return (
         <section className='py-8 select-none'>
             <div className="container relative">
@@ -56,25 +56,7 @@ const CourseSlider = ({ title, primaryTitle }) => {
                         }}
                         modules={[Navigation,Autoplay]}
                     >
-                        <SwiperSlide>
-                            <CourseItem off={10} />
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                            <CourseItem />
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                            <CourseItem />
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                            <CourseItem />
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                            <CourseItem />
-                        </SwiperSlide>
+                        {courses.map(course =><SwiperSlide>  <CourseItem course={course}/>  </SwiperSlide>)}
 
                     </Swiper>
                 </div>
