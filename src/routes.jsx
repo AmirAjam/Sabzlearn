@@ -5,6 +5,8 @@ import Category from "./pages/Category/Category";
 import Cart from "./pages/Cart/Cart";
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
+import EmailLogin from "./pages/Auth/EmailLogin";
+import LostPassword from "./pages/Auth/LostPassword";
 
 const routes = [
     {path:"/" , element:<Home />},
@@ -13,6 +15,8 @@ const routes = [
     {path:"/category/:filter" , element:<Category />},
     {path:"/cart" , element:<Cart />},
     {path:"/login" , element:<Login />},
+    {path:"/login/email" , element:<EmailLogin />},
+    {path:"/login/lost-password" , element:<LostPassword />},
     {path:"/signup" , element:<SignUp />},
 ]
 

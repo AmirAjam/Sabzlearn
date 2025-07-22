@@ -10,7 +10,7 @@ const AuthBox = ({ children,title,subTitle,AuthLink }) => {
             <div className='bg-darker mt-10 rounded-lg py-5'>
                 <h2 className='text-xl font-Vazirmatn-Bold text-center'>{title}</h2>
                 <div className='text-center mt-5'>
-                    <p>{subTitle}  {AuthLink}</p>
+                    <p>{subTitle}  {AuthLink && AuthLink}</p>
                 </div>
                 <form className='px-6 mt-5'>
                     {children}
