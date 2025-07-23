@@ -1,6 +1,5 @@
-import React from 'react'
-import AuthBox from './AuthBox'
-import AuthInput from './AuthInput'
+import AuthBox from '../../components/Auth/AuthBox'
+import AuthInput from '../../components/Auth/AuthInput'
 import PrimaryButton from '../../components/Ui/Buttons/PrimaryButton'
 import { Link } from 'react-router-dom'
 

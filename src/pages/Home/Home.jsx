@@ -153,9 +153,6 @@ const Home = () => {
     }
   ];
 
-
-
-
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isCoverOpen, setIsCovertOpen] = useState(false)
