@@ -1,11 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import icons from "../../../icons"
 
-const PrimaryAlert = ({ danger, text }) => {
+const PrimaryAlert = ({ danger, text,trigger }) => {
     const [showAlert, setShowAlert] = useState(true)
-    // setTimeout(() => {
-    //     setShowAlert(false)
-    // }, 5000);
+    useEffect(() => {
+        setShowAlert(true)
+        const timer = setTimeout(() => {
+            setShowAlert(false);
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, [trigger])
+
     return (
         <div className={`fixed bg-darker top-5 -translate-x-1/2 flex gap-4 items-center py-3 px-5 w-82 group
             duration-300 rounded-lg ${danger ? "danger" : ""} ${showAlert ? "left-1/2 sm:left-52" : "-left-52"} `}>

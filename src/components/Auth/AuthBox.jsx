@@ -7,7 +7,7 @@ const AuthBox = ({ children, title, subTitle, AuthLink, onSubmit,AnotherLogin })
             <Link to="/" className='flex items-center justify-center'>
                 <img src="/public/images/logo/footer-logo.png" alt="" className='h-12' />
             </Link>
-            <div className='bg-darker mt-10 rounded-lg py-5'>
+            <div className='bg-darker mt-10 rounded-lg py-4'>
                 <h2 className='text-xl font-Vazirmatn-Bold text-center'>{title}</h2>
                 <div className='text-center mt-5'>
                     <p>{subTitle}  {AuthLink && AuthLink}</p>
