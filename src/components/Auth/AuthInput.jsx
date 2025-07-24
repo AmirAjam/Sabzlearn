@@ -9,7 +9,7 @@ const AuthInput = ({ placeHolder, icon, name, ...rest }) => {
     >
       <input
         name={name}
-        type="text"
+        type={`${name === "password" ? "password" : "text"}`}
         placeholder={placeHolder}
         className="border-0 outline-0 w-full pl-5"
         {...rest}

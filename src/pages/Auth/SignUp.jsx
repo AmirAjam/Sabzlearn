@@ -13,28 +13,60 @@ const SignUp = () => {
       <AuthBox title="عضویت"
         subTitle="قبلا ثبت نام کرده اید؟"
         AuthLink={<Link to="/login" className='text-primary font-Vazirmatn-Bold'>وارد شوید</Link>}
-        onSubmit={handleSubmit(onSubmit)} 
-        >
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <Controller
+          name="username"
+          control={control}
+          defaultValue=""
+          render={({ field }
+          ) => (
+            <AuthInput
+              placeHolder="نام کاربری"
+              icon="User"
+              {...field}
+            />
+          )}
+        />
+        <Controller
+          name="phone"
+          control={control}
+          defaultValue=""
+          render={({ field }
+          ) => (
+            <AuthInput
+              placeHolder="شماره موبایل"
+              icon="Phone"
+              {...field}
+            />
+          )}
+        />
         <Controller
           name="email"
           control={control}
           defaultValue=""
-          rules={{ required: true }}
-          render={({ field, fieldState: { error } } 
+          render={({ field }
           ) => (
-            <>
-              <AuthInput
-                placeHolder="ایمیل خود را وارد کنید"
-                icon="Email"
-                {...field}
-              />
-              {error && <span className="text-red-500">ایمیل اجباری است.</span>}
-            </>
+            <AuthInput
+              placeHolder="ایمیل خود را وارد کنید"
+              icon="Email"
+              {...field}
+            />
           )}
         />
-        {/* <AuthInput placeHolder="شماره موبایل" icon="Phone" name="phone"/>
-        <AuthInput placeHolder="آدرس ایمیل" icon="Email" name="email"/>
-        <AuthInput placeHolder="رمز عبور" icon="Lock" name="password"/> */}
+        <Controller
+          name="password"
+          control={control}
+          defaultValue=""
+          render={({ field }
+          ) => (
+            <AuthInput
+              placeHolder="رمز عبور" 
+              icon="Lock"
+              {...field}
+            />
+          )}
+        />
       </AuthBox>
     </main>
   )

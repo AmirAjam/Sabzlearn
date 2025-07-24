@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import PrimaryButton from '../Ui/Buttons/PrimaryButton';
 
-const AuthBox = ({ children, title, subTitle, AuthLink,onSubmit }) => {
+const AuthBox = ({ children, title, subTitle, AuthLink, onSubmit,AnotherLogin }) => {
     return (
         <div className='w-80 rounded-lg'>
             <Link to="/" className='flex items-center justify-center'>
@@ -15,8 +15,9 @@ const AuthBox = ({ children, title, subTitle, AuthLink,onSubmit }) => {
                 <form className='px-6 mt-5' onSubmit={onSubmit}>
                     {children}
                     <div className='mt-5'>
-                        <PrimaryButton text="ادامه" submit={true}/>
+                        <PrimaryButton text="ادامه" submit={true} />
                     </div>
+                    {AnotherLogin && AnotherLogin}
                 </form>
             </div>
             <p className='mt-8 text-gray-300 text-center'>
