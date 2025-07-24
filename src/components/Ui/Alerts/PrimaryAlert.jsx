@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react"
 import icons from "../../../icons"
 
-const PrimaryAlert = ({ danger, text,trigger }) => {
+const PrimaryAlert = ({ danger, text, trigger }) => {
     const [showAlert, setShowAlert] = useState(true)
     useEffect(() => {
         setShowAlert(true)
         const timer = setTimeout(() => {
             setShowAlert(false);
-        }, 1000);
+        }, 4000);
         return () => clearTimeout(timer);
     }, [trigger])
 
     return (
-        <div className={`fixed bg-darker top-5 -translate-x-1/2 flex gap-4 items-center py-3 px-5 w-82 group
-            duration-300 rounded-lg ${danger ? "danger" : ""} ${showAlert ? "left-1/2 sm:left-52" : "-left-52"} `}>
+        <div className={`fixed bg-darker top-5 -left-52 -translate-x-1/2 flex gap-4 items-center py-3 px-5 w-82 group 
+            duration-300 rounded-lg ${danger ? "danger" : ""} 
+            ${showAlert && trigger ? "left-1/2 sm:left-52" : "-left-52"} `}>
             <div>
                 <div></div>
                 <icons.Close2 className="hidden bg-red-500 group-[.danger]:block text-4xl rounded-full p-1.5

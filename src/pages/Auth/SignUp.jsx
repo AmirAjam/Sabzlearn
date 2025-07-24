@@ -13,7 +13,7 @@ const SignUp = () => {
   const [alertTrigger, setAlertTrigger] = useState(0)
   const [alertDanger, setAlertDanger] = useState(true)
 
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const { control, handleSubmit } = useForm({
     resolver: yupResolver(signupSchema)
   });
 
@@ -91,7 +91,7 @@ const SignUp = () => {
           />
         </AuthBox>
       </main>
-      {alertTrigger && <PrimaryAlert danger={alertDanger} text={alertText} trigger={alertTrigger} />}
+      {<PrimaryAlert danger={alertDanger} text={alertText} trigger={alertTrigger} />}
     </>
   )
 }
