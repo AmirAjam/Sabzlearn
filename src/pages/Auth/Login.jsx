@@ -2,6 +2,7 @@ import AuthBox from '../../components/Auth/AuthBox'
 import AuthInput from '../../components/Auth/AuthInput'
 import { Link } from 'react-router-dom'
 import { useForm, Controller } from 'react-hook-form';
+import PrimaryAlert from '../../components/Ui/Alerts/PrimaryAlert';
 
 const Login = () => {
     const { control, handleSubmit } = useForm()
@@ -29,6 +30,7 @@ const Login = () => {
                     )}
                 />
             </AuthBox>
+            <PrimaryAlert danger={true} text={"لطفا یک شماره موبایل معتبر وارد کنید."}/>
         </main>
     )
 }

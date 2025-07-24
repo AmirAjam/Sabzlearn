@@ -1,7 +1,10 @@
-import { IoMenu, IoSunnyOutline, IoMoonOutline, IoExtensionPuzzleOutline, IoBookOutline, IoTrashOutline }
+import {
+    IoMenu, IoSunnyOutline, IoMoonOutline, IoExtensionPuzzleOutline, IoBookOutline, IoTrashOutline, IoClose,
+    
+}
     from "react-icons/io5";
 
-import { CiShoppingBasket, CiSearch, CiUser, CiClock2, CiCircleInfo, CiVideoOn, CiCalendar, CiCreditCard1,CiLock  }
+import { CiShoppingBasket, CiSearch, CiUser, CiClock2, CiCircleInfo, CiVideoOn, CiCalendar, CiCreditCard1, CiLock }
     from "react-icons/ci";
 import { VscRefresh } from "react-icons/vsc";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight, MdAlternateEmail } from "react-icons/md";
@@ -17,11 +20,10 @@ import { PiInstagramLogoFill } from "react-icons/pi";
 import { BsFunnel, BsTelephone } from "react-icons/bs";
 import { BiSort } from "react-icons/bi";
 import { IoIosCloseCircleOutline, IoIosArrowDown } from "react-icons/io";
-import { FaChevronLeft, FaCirclePlay } from "react-icons/fa6";
+import { FaChevronLeft, FaCirclePlay,FaCheck  } from "react-icons/fa6";
 import { LiaReplySolid } from "react-icons/lia";
 import { RxBackpack } from "react-icons/rx";
 import { FiBarChart } from "react-icons/fi";
-import { } from "react-icons/bs";
 
 const icons = {
     Menu: IoMenu,
@@ -66,7 +68,9 @@ const icons = {
     Card: CiCreditCard1,
     Phone: BsTelephone,
     Email: MdAlternateEmail,
-    Lock:CiLock
+    Lock: CiLock,
+    Close2: IoClose,
+    Tick2:FaCheck
 }
 
 export default icons
