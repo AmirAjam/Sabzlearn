@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useTheme } from "../../Contexts/ThemeContext"
 
 import icons from "../../icons"
@@ -15,6 +15,7 @@ import ArticleSection from "../../components/Articles/ArticleSection"
 import Footer from "../../components/Footer/Footer"
 import CartSection from "../../components/Header/CartSection/CartSection"
 import PrimaryButton from "../../components/Ui/Buttons/PrimaryButton"
+import AuthContext from "../../Contexts/AuthContext"
 
 const Home = () => {
 
@@ -153,6 +154,10 @@ const Home = () => {
     }
   ];
 
+  const authContext = useContext(AuthContext)
+
+  console.log()
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isCoverOpen, setIsCovertOpen] = useState(false)
@@ -193,10 +198,14 @@ const Home = () => {
                 <icons.ShoppingBasket onClick={changeCartStatus} className="text-3xl cursor-pointer" />
                 <CartSection isCartOpen={isCartOpen} />
               </div>
-              <Link to="/login" className="md:block hidden w-42 text-sm">
-                <PrimaryButton text="ورود یا ثبت نام" icon="User" />
-              </Link>
-              <icons.User className="text-2xl hidden! md:block cursor-pointer " />
+              {authContext.userInfo ?
+                <icons.User className="text-2xl hidden md:block cursor-pointer" />
+                :
+                <Link to="/login" className="md:block hidden w-42 text-sm">
+                  <PrimaryButton text="ورود یا ثبت نام" icon="User" />
+                </Link>
+              }
+
             </div>
           </nav>
           <h1 className="text-center text-lg font-Vazirmatn-Bold mt-14 md:text-4xl md:font-bold">سبزلرن، اولین گام برنامه‌نویس شدن</h1>

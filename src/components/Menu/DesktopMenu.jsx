@@ -1,8 +1,16 @@
+import { useEffect, useState } from 'react'
 import icons from '../../Icons'
 import { Link } from 'react-router-dom'
-
+import { getMenus } from '../../api/menuApi'
 
 const DesktopMenu = () => {
+    const[menus , setMenus] = useState(null)
+
+    useEffect(() => {
+        getMenus()
+        .then(res => setMenus(res.data))
+    })
+
     const menu = [
         {
             id: 1,
@@ -91,22 +99,22 @@ const DesktopMenu = () => {
                  group-hover/sub-menu:visible duration-200 '>
                     <div className='bg-white dark:bg-darker text-gray-800 dark:text-white w-48 rounded-lg 
                         hover:rounded-l-none shadow-xl relative'>
-                        {menu.map(item => {
+                        {menus?.map(menu => {
                             return (
                                 <div className=' group/open'>
-                                    <Link to={`/category/${item.link}`} className='flex items-center justify-between p-2  border-l-white
+                                    <Link to={`/category/${menu.href}`} className='flex items-center justify-between p-2  border-l-white
                             hover:bg-sky-500/10 hover:text-sky-500 hover:border-sky-500 hover:border-l-3'>
-                                        <p>{item.name}</p>
+                                        <p>{menu.title}</p>
                                         <icons.ArrowLeft className='text-xl' />
                                     </Link>
                                     <div className='absolute bg-zinc-50 dark:bg-dark text-sm shadow-xl right-full inset-y-0 rounded-l-lg w-60 z-40 hidden 
                                 group-hover/open:block pl-2 py-2'>
                                         <ul className='overflow-auto h-full custom-scrollbar'>
-                                            {item.subMenu.map(subMenuItem => {
+                                            {menu.submenus.map(subMenuItem => {
                                                 return (
                                                     <li className='p-2 first:pt-0 last:pb-0'>
-                                                        <Link to={`/course/${subMenuItem.link}`} >
-                                                            {subMenuItem.name}
+                                                        <Link to={`/course/${subMenuItem.href}`} >
+                                                            {subMenuItem.title}
                                                         </Link>
                                                     </li>
                                                 )

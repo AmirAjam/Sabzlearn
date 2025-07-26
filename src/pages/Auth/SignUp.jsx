@@ -1,11 +1,12 @@
 import AuthBox from '../../components/Auth/AuthBox'
 import AuthInput from '../../components/Auth/AuthInput'
 import { useForm, Controller } from 'react-hook-form';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup';
 import signupSchema from '../../schemas/signupSchema';
 import PrimaryAlert from '../../components/Ui/Alerts/PrimaryAlert';
 import { useState } from 'react';
+import { registerUser } from '../../api/authApi';
 
 const SignUp = () => {
 
@@ -17,9 +18,33 @@ const SignUp = () => {
     resolver: yupResolver(signupSchema)
   });
 
-  const onSubmit = (data) => {
+  const navigate =useNavigate()
+
+  const onSubmit = async(data) => {
+    const userData = {
+      username: data.username,
+      email: data.email,
+      password: data.password,
+      confirmPassword: data.password,
+      name: data.username,
+      phone: data.phone
+    }
+    const responseCode = await registerUser(userData)
+    if (responseCode === 201) {
+      setAlertDanger(false)
+      setAlertText("ثبت نام با موفقیت انجام شد.درحال انتقال به صفحه ورود هستید.")
+      setTimeout(() => {
+        navigate("/login")
+      }, 4500);
+    }
+    else if (responseCode === 409) {
+      setAlertText("نام کاربری یا ایمیل تکراری می باشد")
+    }
+    else {
+      setAlertText("خطایی در ارتباط با سرور رخ داد.لطفا بعدا تلاش کنید")
+    }
     setAlertTrigger(prev => prev + 1)
-    setAlertDanger(false)
+
   }
 
   const onError = (formErrors) => {

@@ -1,13 +1,18 @@
 import AuthBox from '../../components/Auth/AuthBox'
 import AuthInput from '../../components/Auth/AuthInput'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import loginSchema from '../../schemas/loginSchema';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PrimaryAlert from '../../components/Ui/Alerts/PrimaryAlert';
+import { loginUser } from '../../api/authApi';
+import AuthContext from '../../Contexts/AuthContext';
 
 const EmailLogin = () => {
+    const authContext = useContext(AuthContext)
+    const navigate = useNavigate()
+    // console.log(authContext) 
     const [alertText, setAlertText] = useState("")
     const [alertTrigger, setAlertTrigger] = useState(0)
     const [alertDanger, setAlertDanger] = useState(true)
@@ -16,9 +21,20 @@ const EmailLogin = () => {
         resolver: yupResolver(loginSchema)
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
+        const response = await loginUser(data)
+        if (response.status === 200) {
+            setAlertText("باموفقیت وارد شدید.درحال انتقال به صفحه اصلی هستید.")
+            setAlertDanger(false)
+            setTimeout(() => {
+                navigate("/") 
+                authContext.login(response.data.accessToken)
+            }, 4000)
+        }
+        else {
+            setAlertText("نام کاربری یا رمز عبور اشتباه است.")
+        }
         setAlertTrigger(prev => prev + 1)
-        setAlertDanger(false)
     }
 
     const onError = (formErrors) => {
@@ -42,13 +58,13 @@ const EmailLogin = () => {
                     onSubmit={handleSubmit(onSubmit, onError)}
                 >
                     <Controller
-                        name="email"
+                        name="identifier"
                         control={control}
                         defaultValue=""
                         render={({ field }
                         ) => (
                             <AuthInput
-                                placeHolder="آدرس ایمیل"
+                                placeHolder="آدرس ایمیل یا نام کاربری"
                                 icon="Email"
                                 {...field}
                             />
