@@ -49,7 +49,7 @@ const EmailLogin = () => {
             <main className='flex flex-col justify-center items-center h-[100vh]'>
                 <AuthBox title="ورود با موبایل"
                     subTitle="حساب کاربری ندارید؟"
-                    AuthLink={<Link to="/signup" className='text-primary font-Vazirmatn-Bold'>ثبت نام کنید</Link>}
+                    AuthLink={<Link to="/signup" className='text-green-primary font-Vazirmatn-Bold'>ثبت نام کنید</Link>}
                     AnotherLogin={
                         <div className='flex justify-between px-1'>
                             <Link to="/login" className='mt-5 block text-gray-500 text-sm'>ورود با موبایل</Link>

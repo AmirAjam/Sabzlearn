@@ -19,7 +19,7 @@ const CartItem = () => {
                 </div>
                 <div>
                     <span className='text-gray-400 line-through text-sm'>1,800,000</span>
-                    <p className='text-primary text-lg font-Vazirmatn-Bold'>540,000 تومان</p>
+                    <p className='text-green-primary text-lg font-Vazirmatn-Bold'>540,000 تومان</p>
                 </div>
             </div>
             <div className='sm:block hidden'>

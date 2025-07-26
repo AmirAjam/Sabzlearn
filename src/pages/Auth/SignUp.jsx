@@ -59,7 +59,7 @@ const SignUp = () => {
       <main className='flex flex-col justify-center items-center h-[96vh]'>
         <AuthBox title="عضویت"
           subTitle="قبلا ثبت نام کرده اید؟"
-          AuthLink={<Link to="/login" className='text-primary font-Vazirmatn-Bold'>وارد شوید</Link>}
+          AuthLink={<Link to="/login" className='text-green-primary font-Vazirmatn-Bold'>وارد شوید</Link>}
           onSubmit={handleSubmit(onSubmit, onError)}
         >
           <Controller

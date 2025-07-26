@@ -5,7 +5,7 @@ import icons from '../../Icons'
 const Payment = () => {
     return (
         <section className='mt-8 lg:mt-0'>
-            <div className='flex items-center gap-3 bg-primary p-3 rounded-t-lg'>
+            <div className='flex items-center gap-3 bg-green-primary p-3 rounded-t-lg'>
                 <icons.Card className='text-4xl' />
                 <h2>سبد خرید</h2>
             </div>

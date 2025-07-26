@@ -23,9 +23,9 @@ const ArticleItem = ({ article }) => {
         </div>
       </div>
       <div className='py-3'>
-        <Link className='flex gap-2 items-center justify-center mt-2.5 duration-200 hover:text-primary group'>
+        <Link className='flex gap-2 items-center justify-center mt-2.5 duration-200 hover:text-green-primary group'>
           <span className='mt-px'>مطالعه مقاله </span>
-          <icons.LongArrowLeft className='bg-white group-hover:bg-primary duration-200 group-hover:text-white dark:text-darker 
+          <icons.LongArrowLeft className='bg-white group-hover:bg-green-primary duration-200 group-hover:text-white dark:text-darker 
             rounded-full p-0.5 text-lg group-hover:mr-2'/>
         </Link>
       </div>

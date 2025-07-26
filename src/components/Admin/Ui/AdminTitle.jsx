@@ -1,8 +1,8 @@
 import React from 'react'
 
-const AdminTitle = () => {
+const AdminTitle = ({title}) => {
   return (
-    <h1 class="text-3xl font-Vazirmatn-Bold mt-10">لیست محصولات</h1>
+    <h1 class="text-3xl font-Vazirmatn-Bold mt-10">{title}</h1>
   )
 }
 

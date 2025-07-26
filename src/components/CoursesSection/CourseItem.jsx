@@ -19,7 +19,7 @@ const CourseItem = ({ course }) => {
                 </div>
                 <div className='flex justify-between items-center pb-4 border-b-1 border-b-neutral-200/70 dark:border-b-white/10'>
                     <Link className='w-fit flex items-center gap-1 text-gray-700 dark:text-gray-400 duration-200
-                 hover:text-primary!'>
+                 hover:text-green-primary!'>
                         <icons.User className='text-xl' />
                         <span className='text-sm'>{course.creator}</span>
                     </Link>
@@ -36,12 +36,12 @@ const CourseItem = ({ course }) => {
                     </div>
                     {course.discount ?
                         <div className='flex items-center gap-4'>
-                            <div className='p-1.5 bg-primary rounded-sm flex items-center justify-center'>
+                            <div className='p-1.5 bg-green-primary rounded-sm flex items-center justify-center'>
                                 <span className='text-sm text-white'>%{course.discount}</span>
                             </div>
                             <div>
                                 <p className='text-sm line-through text-gray-500'>{course.price.toLocaleString()}</p>
-                                <div className='font-Vazirmatn-Medium text-primary text-lg'>
+                                <div className='font-Vazirmatn-Medium text-green-primary text-lg'>
                                     {finalPrice ?
                                         <>
                                             <span>{finalPrice.toLocaleString()}</span>
@@ -55,7 +55,7 @@ const CourseItem = ({ course }) => {
 
                         </div>
                         :
-                        <div className='font-Vazirmatn-Medium text-primary text-lg '>
+                        <div className='font-Vazirmatn-Medium text-green-primary text-lg '>
                             <span>{course.price.toLocaleString()}</span>
                             <span className='mr-2'>تومان</span>
                         </div>

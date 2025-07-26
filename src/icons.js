@@ -9,14 +9,14 @@ import { CiShoppingBasket, CiSearch, CiUser, CiClock2, CiCircleInfo, CiVideoOn, 
 import { VscRefresh } from "react-icons/vsc";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight, MdAlternateEmail, MdSpaceDashboard,MdCategory }
     from "react-icons/md";
-import { GoArrowUpLeft, GoIssueClosed, GoChecklist } from "react-icons/go";
+import { GoArrowUpLeft, GoIssueClosed, GoChecklist,GoPlus  } from "react-icons/go";
 import { TiStarFullOutline } from "react-icons/ti";
 import { HiOutlineUsers, HiOutlineHome } from "react-icons/hi2";
 import { LuCodeXml, LuMessageSquareMore } from "react-icons/lu";
 import { GrSecure } from "react-icons/gr";
 import { AiOutlinePython } from "react-icons/ai";
 import { TbArrowLeft } from "react-icons/tb";
-import { FaTelegramPlane, FaLinkedinIn } from "react-icons/fa";
+import { FaTelegramPlane, FaLinkedinIn,FaBan } from "react-icons/fa";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { BsFunnel, BsTelephone, BsDatabaseFillAdd } from "react-icons/bs";
 import { BiSort } from "react-icons/bi";
@@ -24,7 +24,7 @@ import { IoIosCloseCircleOutline, IoIosArrowDown, IoIosNotificationsOutline } fr
 import { FaChevronLeft, FaCirclePlay, FaCheck } from "react-icons/fa6";
 import { LiaReplySolid } from "react-icons/lia";
 import { RxBackpack } from "react-icons/rx";
-import { FiBarChart } from "react-icons/fi";
+import { FiBarChart  } from "react-icons/fi";
 
 const icons = {
     Menu: IoMenu,
@@ -75,7 +75,9 @@ const icons = {
     Notification: IoIosNotificationsOutline,
     Dashboard: MdSpaceDashboard,
     AddProduct: BsDatabaseFillAdd,
-    Category:MdCategory
+    Category:MdCategory,
+    Plus:GoPlus,
+    Ban:FaBan,
 }
 
 export default icons

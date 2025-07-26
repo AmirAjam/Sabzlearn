@@ -12,7 +12,7 @@ const Cart = () => {
             <main className='py-16'>
                 <div className="container lg:flex justify-between gap-10">
                     <div className='lg:w-2/3'>
-                        <div className='flex items-center gap-3 bg-primary p-3 rounded-t-lg'>
+                        <div className='flex items-center gap-3 bg-green-primary p-3 rounded-t-lg'>
                             <icons.ShoppingBasket className='text-4xl' />
                             <h2>سبد خرید</h2>
                         </div>

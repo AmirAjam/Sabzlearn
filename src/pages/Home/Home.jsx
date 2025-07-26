@@ -96,13 +96,13 @@ const Home = () => {
           <div className="relative">
             <div className="flex justify-between bg-white  mt-5 md:mt-8 lg:mt-12 md:w-70/100 md:mx-auto p-2 lg:p-3 rounded-full pr-3 md:pr-8!">
               <input type="text" className="w-full outline-none border-none text-gray-800" placeholder="جستجو در بین دوره ها..." />
-              <div className="bg-primary w-fit rounded-full p-2.5 cursor-pointer">
+              <div className="bg-green-primary w-fit rounded-full p-2.5 cursor-pointer">
                 <icons.Search className="text-xl lg:text-3xl" />
               </div>
             </div>
             <div className="absolute inset-x-0 top-24 bg-white  py-4 px-5 rounded-lg hidden">
-              <div id="search-loader" className="mx-auto border border-primary w-fit p-2 rounded-full hidden">
-                <icons.Refresh className="text-2xl text-primary animate-spin " />
+              <div id="search-loader" className="mx-auto border border-green-primary w-fit p-2 rounded-full hidden">
+                <icons.Refresh className="text-2xl text-green-primary animate-spin " />
               </div>
               <p id="search-message" className="text-center hidden">متاسفانه نتیجه ای با مشخصات مورد نظر شما پیدا نشد!</p>
               <ul id="search-wrapper" className="flex flex-col gap-5">

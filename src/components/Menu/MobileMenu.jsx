@@ -36,16 +36,16 @@ const MobileMenu = ({ isMenuOpen, changeTheme }) => {
             }
 
             <div className='py-4 px-8 mt-4'>
-                <p className='text-primary'>دسترسی سریع</p>
+                <p className='text-green-primary'>دسترسی سریع</p>
                 <ul className='mt-2 text-sm border-b border-gray-300/80 pb-4'>
                     <li>
-                        <Link className='flex justify-between py-2 hover:text-primary duration-300 items-center'>
+                        <Link className='flex justify-between py-2 hover:text-green-primary duration-300 items-center'>
                             <span>دوره های من</span>
                             <icons.ArrowLeft className='text-xl' />
                         </Link>
                     </li>
                     <li>
-                        <Link className='flex justify-between py-2 hover:text-primary duration-300 items-center'>
+                        <Link className='flex justify-between py-2 hover:text-green-primary duration-300 items-center'>
                             <span>تیکت های من</span>
                             <icons.ArrowLeft className='text-xl' />
                         </Link>
@@ -54,7 +54,7 @@ const MobileMenu = ({ isMenuOpen, changeTheme }) => {
             </div>
 
             <div className='px-8'>
-                <p className='text-primary'>دسته بندی ها</p>
+                <p className='text-green-primary'>دسته بندی ها</p>
                 <ul className='mt-2 text-sm border-b border-gray-300/80 pb-4'>
                     {menus?.map(menu => <MobileMenuItem menuItem={menu} key={menu._id} />)}
                 </ul>

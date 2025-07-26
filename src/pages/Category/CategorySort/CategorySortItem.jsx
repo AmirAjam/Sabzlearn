@@ -12,7 +12,7 @@ const CategorySortItem = ({ sortTitle, closeSort, changeSortTitle, name, text })
 
   return (
     <div onClick={ItemClickHandler} name={name} className={`py-6 flex justify-between items-center border-b font-Vazirmatn-Bold
-     border-gray-300/80 dark:border-gray-700 ${sortTitle === text ? "text-primary lg:text-sky-500 lg:border-y-2! lg:border-sky-500!" : ""} 
+     border-gray-300/80 dark:border-gray-700 ${sortTitle === text ? "text-green-primary lg:text-sky-500 lg:border-y-2! lg:border-sky-500!" : ""} 
       lg:border-0 lg:text-sm cursor-pointer lg:px-px`}>
       <p>{text}</p>
       {sortTitle === text &&

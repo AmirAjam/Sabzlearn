@@ -61,12 +61,12 @@ const CourseSlider = ({ title, primaryTitle,courses }) => {
                     </Swiper>
                 </div>
                 <div className='flex mt-5 lg:mt-0 justify-center lg:absolute gap-5 lg:top-10 lg:left-5'>
-                    <div id='right-slider' className='duration-200 text-primary hover:text-white hover:bg-primary border 
-                    border-primary p-2 cursor-pointer rounded-full w-fit'>
+                    <div id='right-slider' className='duration-200 text-green-primary hover:text-white hover:bg-green-primary border 
+                    border-green-primary p-2 cursor-pointer rounded-full w-fit'>
                         <icons.ArrowRight className='text-4xl ' />
                     </div>
-                    <div id='left-slider' className='duration-200 text-primary hover:text-white hover:bg-primary border 
-                    border-primary p-2 cursor-pointer rounded-full w-fit'>
+                    <div id='left-slider' className='duration-200 text-green-primary hover:text-white hover:bg-green-primary border 
+                    border-green-primary p-2 cursor-pointer rounded-full w-fit'>
                         <icons.ArrowLeft className='text-4xl ' />
                     </div>
                 </div>

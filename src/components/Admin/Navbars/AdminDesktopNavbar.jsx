@@ -63,7 +63,7 @@ const AdminDesktopNavbar = () => {
                 </li>
                 <li className='flex items-center gap-4 '>
                     <NavLink
-                        to="users"
+                        to="/p-admin/users"
                         className={({ isActive }) =>
                             `w-full flex gap-4 items-center py-3 px-2 hover:bg-dark
                             duration-300 rounded-lg ${isActive ? 'bg-dark' : ''}`

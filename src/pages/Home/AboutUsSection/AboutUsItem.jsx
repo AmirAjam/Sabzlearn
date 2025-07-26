@@ -7,8 +7,8 @@ const AboutUsItem = ({icon,title,desc}) => {
 
             <div className="flex flex-col justify-center lg:flex-row lg:justify-normal items-center gap-5 w-fit">
                 <div className='flex justify-center lg:justify-end items-center w-[94px] h-13 lg:w-13 lg:h-[94px] mb-11 
-                    lg:mb-0 lg:ml-11 bg-primary/10 dark:bg-primary/10 rounded-full'>
-                    <AboutUsIcon className="size-13 text-primary translate-y-1/2 lg:translate-y-0 lg:-translate-x-1/2" />
+                    lg:mb-0 lg:ml-11 bg-green-primary/10 dark:bg-green-primary/10 rounded-full'>
+                    <AboutUsIcon className="size-13 text-green-primary translate-y-1/2 lg:translate-y-0 lg:-translate-x-1/2" />
                 </div>
                 <div>
                     <h3 className="font-Vazirmatn-Bold text-lg mb-6 lg:mb-2 lg:text-xl text-center lg:text-right">\

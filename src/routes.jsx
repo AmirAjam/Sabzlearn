@@ -10,7 +10,7 @@ import LostPassword from "./pages/Auth/LostPassword";
 import AdminPanel from "./pages/Admin/AdminPanel";
 import Users from "./pages/Admin/Users";
 import AdminProducts from "./pages/Admin/AdminProducts";
-import Dashboard from "./pages/Admin/Dashboard";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -25,7 +25,7 @@ const routes = [
     {
         path: "/p-admin/*", element: <AdminPanel />,
         children: [
-            { path: "", element: <Dashboard /> },
+            { path: "", element: <AdminDashboard /> },
             { path: "products", element: <AdminProducts /> },
             { path: "users", element: <Users /> },
         ]

@@ -21,7 +21,7 @@ const AuthBox = ({ children, title, subTitle, AuthLink, onSubmit,AnotherLogin })
                 </form>
             </div>
             <p className='mt-8 text-gray-300 text-center'>
-                با عضویت در سایت، تمامی قوانین و شرایط استفاده از خدمات <span className='text-primary font-Vazirmatn-Bold'>سبزلرن</span> را پذیرفته اید.
+                با عضویت در سایت، تمامی قوانین و شرایط استفاده از خدمات <span className='text-green-primary font-Vazirmatn-Bold'>سبزلرن</span> را پذیرفته اید.
             </p>
         </div>
     )

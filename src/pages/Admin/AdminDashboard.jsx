@@ -1,10 +1,10 @@
 import React from 'react'
 import AdminTitle from '../../components/Admin/Ui/AdminTitle'
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   return (
-    <AdminTitle />
+    <AdminTitle title="داشبورد"/>
   )
 }
 
-export default Dashboard
+export default AdminDashboard
