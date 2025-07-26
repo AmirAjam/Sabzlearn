@@ -1,20 +1,25 @@
 import { Link } from 'react-router-dom'
 import icons from '../../Icons'
+import convertToJalali from '../../utility/convertToJalali'
 
-const ArticleItem = () => {
+const ArticleItem = ({ article }) => {
+  console.log()
+  const createdAt = convertToJalali(article.createdAt)
+
   return (
     <div className='rounded-xl bg-white dark:bg-darker pb-2.5 shadow-sm h-full'>
       <Link className='rounded-xl overflow-hidden h-42 block'>
         <img src="/public/images/article/1.png" alt="" className='rounded-xl size-full object-cover' />
       </Link>
       <div className='px-4.5'>
-        <Link className='mt-5 font-Vazirmatn-Bold line-clamp-2'>هوش مصنوعی، بلاکچین و برنامه‌نویسی؛ این سه تا چطور با هم</Link>
+        <Link className='mt-5 font-Vazirmatn-Bold line-clamp-2 h-12'>{article.title}</Link>
         <p className='mt-5 line-clamp-3 text-gray-700 dark:text-gray-400 text-sm'>
-          مسیر یادگیری و پیشرفت در دنیای تخصصی برنامه‌نویسی و فناوری اطلاعات، مسیری هیجان‌انگیز اما پر از چالش است. سوالات...        </p>
+          {article.description}
+        </p>
         <div className='mt-7 flex justify-between items-center pb-4 border-b-1 border-b-neutral-200/70 
         dark:border-b-white/10 text-sm dark:text-gray-400'>
-          <span className=''>معین باغشیخی</span>
-          <span className=''>1404/04/20</span>
+          <span className=''>{article.creator.name}</span>
+          <span className=''>{createdAt}</span>
         </div>
       </div>
       <div className='py-3'>

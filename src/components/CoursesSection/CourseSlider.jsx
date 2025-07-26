@@ -56,7 +56,7 @@ const CourseSlider = ({ title, primaryTitle,courses }) => {
                         }}
                         modules={[Navigation,Autoplay]}
                     >
-                        {courses.map(course =><SwiperSlide>  <CourseItem course={course}/>  </SwiperSlide>)}
+                        {courses?.map(course =><SwiperSlide>  <CourseItem course={course}/>  </SwiperSlide>)}
 
                     </Swiper>
                 </div>

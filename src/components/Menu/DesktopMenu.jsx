@@ -101,7 +101,7 @@ const DesktopMenu = () => {
                         hover:rounded-l-none shadow-xl relative'>
                         {menus?.map(menu => {
                             return (
-                                <div className=' group/open'>
+                                <div className=' group/open' key={menu._id}>
                                     <Link to={`/category/${menu.href}`} className='flex items-center justify-between p-2  border-l-white
                             hover:bg-sky-500/10 hover:text-sky-500 hover:border-sky-500 hover:border-l-3'>
                                         <p>{menu.title}</p>
@@ -112,7 +112,7 @@ const DesktopMenu = () => {
                                         <ul className='overflow-auto h-full custom-scrollbar'>
                                             {menu.submenus.map(subMenuItem => {
                                                 return (
-                                                    <li className='p-2 first:pt-0 last:pb-0'>
+                                                    <li className='p-2 first:pt-0 last:pb-0' key={subMenuItem._id}>
                                                         <Link to={`/course/${subMenuItem.href}`} >
                                                             {subMenuItem.title}
                                                         </Link>

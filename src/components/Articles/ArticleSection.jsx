@@ -4,7 +4,7 @@ import FirstSectionTitle from '../Ui/Titles/FirstSectionTitle'
 import PrimarySectiontitle from '../Ui/Titles/PrimarySectiontitle'
 import AllCourse from '../Ui/Titles/AllItem'
 
-const ArticleSection = () => {
+const ArticleSection = ({ articles }) => {
     return (
         <section className='py-8'>
             <div className="container">
@@ -14,14 +14,7 @@ const ArticleSection = () => {
                     <AllCourse title="مقالات" />
                 </div>
                 <div className="py-8 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
-                    <ArticleItem />
-                    <ArticleItem />
-                    <ArticleItem />
-                    <ArticleItem />
-                    <ArticleItem />
-                    <ArticleItem />
-                    <ArticleItem />
-                    <ArticleItem />
+                    {articles?.slice(3).map(article => <ArticleItem article={article} key={article._id}/>)}
                 </div>
             </div>
         </section>
