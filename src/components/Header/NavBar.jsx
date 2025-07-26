@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useTheme } from "../../Contexts/ThemeContext"
 
 
@@ -10,8 +10,11 @@ import PrimaryButton from "../Ui/Buttons/PrimaryButton"
 import Cover from "../Ui/Cover/Cover"
 
 import icons from "../../Icons"
+import AuthContext from "../../Contexts/AuthContext"
 
 const NavBar = () => {
+
+    const authContext = useContext(AuthContext)
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isCartOpen, setIsCartOpen] = useState(false)
@@ -62,12 +65,15 @@ const NavBar = () => {
                         <icons.ShoppingBasket onClick={changeCartStatus} className="text-3xl cursor-pointer" />
                         <CartSection isCartOpen={isCartOpen} />
                     </div>
-                    <div className="bg-gray-100 dark:bg-dark p-3 rounded-full md:block hidden!">
-                        <icons.User className="text-2xl cursor-pointer" />
-                    </div>
-                    <Link to="/login" className="md:block hidden w-42 text-sm">
-                        <PrimaryButton text="ورود یا ثبت نام" icon="User"/>
-                    </Link>
+                    {authContext.userInfo ?
+                        <div className="bg-gray-100 dark:bg-dark p-3 rounded-full hidden md:block">
+                            <icons.User className="text-2xl cursor-pointer" />
+                        </div>
+                        :
+                        <Link to="/login" className="md:block hidden w-42 text-sm ">
+                            <PrimaryButton text="ورود یا ثبت نام" icon="User" />
+                        </Link>
+                    }
                 </div>
             </nav>
             <MobileMenu isMenuOpen={isMenuOpen} changeTheme={toggleTheme} />

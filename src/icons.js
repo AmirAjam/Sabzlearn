@@ -1,13 +1,14 @@
 import {
     IoMenu, IoSunnyOutline, IoMoonOutline, IoExtensionPuzzleOutline, IoBookOutline, IoTrashOutline, IoClose,
-    
+
 }
     from "react-icons/io5";
 
 import { CiShoppingBasket, CiSearch, CiUser, CiClock2, CiCircleInfo, CiVideoOn, CiCalendar, CiCreditCard1, CiLock }
     from "react-icons/ci";
 import { VscRefresh } from "react-icons/vsc";
-import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight, MdAlternateEmail } from "react-icons/md";
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight, MdAlternateEmail, MdSpaceDashboard,MdCategory }
+    from "react-icons/md";
 import { GoArrowUpLeft, GoIssueClosed, GoChecklist } from "react-icons/go";
 import { TiStarFullOutline } from "react-icons/ti";
 import { HiOutlineUsers, HiOutlineHome } from "react-icons/hi2";
@@ -17,10 +18,10 @@ import { AiOutlinePython } from "react-icons/ai";
 import { TbArrowLeft } from "react-icons/tb";
 import { FaTelegramPlane, FaLinkedinIn } from "react-icons/fa";
 import { PiInstagramLogoFill } from "react-icons/pi";
-import { BsFunnel, BsTelephone } from "react-icons/bs";
+import { BsFunnel, BsTelephone, BsDatabaseFillAdd } from "react-icons/bs";
 import { BiSort } from "react-icons/bi";
-import { IoIosCloseCircleOutline, IoIosArrowDown } from "react-icons/io";
-import { FaChevronLeft, FaCirclePlay,FaCheck  } from "react-icons/fa6";
+import { IoIosCloseCircleOutline, IoIosArrowDown, IoIosNotificationsOutline } from "react-icons/io";
+import { FaChevronLeft, FaCirclePlay, FaCheck } from "react-icons/fa6";
 import { LiaReplySolid } from "react-icons/lia";
 import { RxBackpack } from "react-icons/rx";
 import { FiBarChart } from "react-icons/fi";
@@ -70,7 +71,11 @@ const icons = {
     Email: MdAlternateEmail,
     Lock: CiLock,
     Close2: IoClose,
-    Tick2:FaCheck
+    Tick2: FaCheck,
+    Notification: IoIosNotificationsOutline,
+    Dashboard: MdSpaceDashboard,
+    AddProduct: BsDatabaseFillAdd,
+    Category:MdCategory
 }
 
 export default icons
