@@ -1,17 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import icons from '../../icons'
+import calFinalPrice from '../../utility/calFinalPrice'
 
 const CourseItem = ({ course }) => {
-    const finalPrice = (100 - course.discount) * course.price / 100
+    const finalPrice = calFinalPrice(course.price,course.discount)
     return (
         <div className='rounded-xl bg-white dark:bg-darker pb-5 shadow-sm h-full'>
-            <Link className='rounded-xl overflow-hidden h-42 block'>
+            <Link to={`/course/${course.shortName}`} className='rounded-xl overflow-hidden h-42 block'>
                 <img src="/public/images/courses/1.webp" alt="" className='rounded-xl size-full object-cover' />
             </Link>
             <div className='px-4.5'>
                 <div className='h-24 mb-8'>
-                    <Link className='mt-5 font-Vazirmatn-Bold line-clamp-2'>{course.name}</Link>
+                    <Link to={`/course/${course.shortName}`} className='mt-5 font-Vazirmatn-Bold line-clamp-2'>{course.name}</Link>
                     <p className='mt-5 line-clamp-2 text-gray-700 dark:text-gray-400 text-sm'>
                         {course.description}
                     </p>

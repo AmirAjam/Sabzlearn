@@ -6,7 +6,7 @@ import icons from "../../Icons"
 const Breadcrumb = () => {
     return (
         <section>
-            <div className='bg-white dark:bg-darker px-1 flex overflow-x-scroll scrollbar-none py-2 rounded-lg'>
+            <div className='bg-white dark:bg-darker px-1 flex overflow-y-hidden overflow-x-scroll scrollbar-none py-2 rounded-lg'>
                 <div className="relative flex items-center first:mr-0">
                     <Link className="text-nowrap text-3xl mb-px"><icons.Home /></Link>
                 </div>

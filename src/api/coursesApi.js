@@ -8,6 +8,7 @@ const getPopularCourses = async (userData) => {
         return err.response
     }
 }
+
 const getPresellCourses = async (userData) => {
     try {
         const response = await axios.get("/courses/presell", userData)
@@ -17,4 +18,12 @@ const getPresellCourses = async (userData) => {
     }
 }
 
-export { getPopularCourses,getPresellCourses }
+const getOneCourseDetail = async (courseName) => {
+    try {
+        const response = await axios.get(`/courses/${courseName}`)
+        return response
+    } catch (err) {
+        return err.response
+    }
+}
+export { getPopularCourses, getPresellCourses,getOneCourseDetail }
