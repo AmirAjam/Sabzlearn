@@ -3,13 +3,14 @@ import AdminTitle from "../../components/Admin/Ui/AdminTitle"
 import Selectbox from "../../components/Admin/Ui/Selectbox"
 import SeconderyButton from "@/components/Ui/Buttons/SeconderyButton"
 import { useEffect, useState } from "react"
-import { getAllUsers } from "@/api/usersApi"
+import { changeUserRole, deleteUser, getAllUsers } from "@/api/usersApi"
 import AlertDialog from "@/components/Ui/Alerts/AlertDialog"
-import Cover from "@/components/Ui/Cover/Cover"
+import PrimaryAlert from "@/components/Ui/Alerts/PrimaryAlert"
 
 const Users = () => {
     const [users, setUsers] = useState(null)
     const [isShowAlert, setIsShowAlert] = useState(false)
+    const [userId, setUserId] = useState(null)
 
     const roleSelectbox = [
         { id: 1, text: "همه", value: "ALL" },
@@ -24,28 +25,36 @@ const Users = () => {
         { id: 3, text: "غیرفعال", value: "inactive" },
     ]
 
-    const alertDialogResponse = (res) => {
-        console.log(res)
+    const alertDialogResponse = res => {
+        res ? handleDeleteUser() : setIsShowAlert(false)
     }
 
-    const showAlertDialog = (res, userId) => {
+    const showAlertDialog = id => {
+        setUserId(id)
         setIsShowAlert(true)
-        if (res !== null) {
-            // res ? deleteUser(userIdTemp) : setIsShowAlert(false)
-        }
-        else {
-            console.log("userId : " + userId)
-        }
     }
 
-    const deleteUser = (userId) => {
-        console.log(userId)
+    const handleDeleteUser = () => {
+        deleteUser(userId)
+            .then(res => {
+                if(res.status === 200){
+                    PrimaryAlert
+                }
+            })
+        setUserId(null)
         setIsShowAlert(false)
     }
+
+    const handleChangeUserRole = (id, role) => {
+        changeUserRole(id, role)
+        .then(res => (console.log(res)))
+    }
+
     useEffect(() => {
         getAllUsers()
             .then(res => setUsers(res.data))
-    }, [])
+    }, [userId])
+
 
 
     return (
@@ -98,7 +107,11 @@ const Users = () => {
                                         </td>
                                         <td className="py-4">
                                             <div className="w-2/3">
-                                                <Selectbox options={roleSelectbox.slice(1)} defaultValue={user.role} />
+                                                <Selectbox
+                                                    changeUserRole={handleChangeUserRole}
+                                                    userId={user._id}
+                                                    options={roleSelectbox.slice(1)}
+                                                    defaultValue={user.role} />
                                             </div>
                                         </td>
                                         <td className="py-4 text-green-500">
@@ -109,7 +122,7 @@ const Users = () => {
                                                 <button className="cursor-pointer hover:text-red-500/80 duration-200">
                                                     <icons.Ban />
                                                 </button>
-                                                <button onClick={() => showAlertDialog(null, user._id)}
+                                                <button onClick={() => showAlertDialog(user._id)}
                                                     className="cursor-pointer hover:text-red-500/80 duration-200">
                                                     <icons.Trash />
                                                 </button>
@@ -124,6 +137,7 @@ const Users = () => {
                 </div>
             </div>
             <AlertDialog isShowAlert={isShowAlert} alertDialogResponse={alertDialogResponse} />
+            
         </main>
     )
 }
