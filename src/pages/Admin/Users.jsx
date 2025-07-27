@@ -2,22 +2,50 @@ import { icons } from "lucide-react"
 import AdminTitle from "../../components/Admin/Ui/AdminTitle"
 import Selectbox from "../../components/Admin/Ui/Selectbox"
 import SeconderyButton from "@/components/Ui/Buttons/SeconderyButton"
+import { useEffect, useState } from "react"
+import { getAllUsers } from "@/api/usersApi"
+import AlertDialog from "@/components/Ui/Alerts/AlertDialog"
+import Cover from "@/components/Ui/Cover/Cover"
 
 const Users = () => {
+    const [users, setUsers] = useState(null)
+    const [isShowAlert, setIsShowAlert] = useState(false)
+
     const roleSelectbox = [
-        { id: 1, text: "همه", value: "all" },
-        { id: 2, text: "ادمین", value: "admin" },
-        { id: 3, text: "کاربر", value: "user" },
-        { id: 4, text: "مدرس", value: "teacher" },
+        { id: 1, text: "همه", value: "ALL" },
+        { id: 2, text: "ادمین", value: "ADMIN" },
+        { id: 3, text: "کاربر", value: "USER" },
+        { id: 4, text: "مدرس", value: "TEACHER" },
     ]
-
-
 
     const userStatusSelectbox = [
         { id: 1, text: "همه", value: "all" },
         { id: 2, text: "فعال", value: "active" },
         { id: 3, text: "غیرفعال", value: "inactive" },
     ]
+
+    const alertDialogResponse = (res) => {
+        console.log(res)
+    }
+
+    const showAlertDialog = (res, userId) => {
+        setIsShowAlert(true)
+        if (res !== null) {
+            // res ? deleteUser(userIdTemp) : setIsShowAlert(false)
+        }
+        else {
+            console.log("userId : " + userId)
+        }
+    }
+
+    const deleteUser = (userId) => {
+        console.log(userId)
+        setIsShowAlert(false)
+    }
+    useEffect(() => {
+        getAllUsers()
+            .then(res => setUsers(res.data))
+    }, [])
 
 
     return (
@@ -53,43 +81,49 @@ const Users = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="bg-darker text-sm rounded-md border-b border-gray-500">
-                                <td className="flex gap-5 items-center py-6">
-                                    <div>
-                                        <img src="/public/images/user/user.jpg" alt="" className="size-12 rounded-full" />
-                                    </div>
-                                    <div>
-                                        <p>گلشیفته فراهانی</p>
-                                        <p className="mt-2">kskitterelm@washingtonpost.com</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p className="">09918765421</p>
-                                </td>
-                                <td className="py-4">
-                                    <div className="w-2/3">
-                                        <Selectbox options={roleSelectbox.slice(1)} defaultValue={"admin"} />
-                                    </div>
-                                </td>
-                                <td className="py-4 text-green-500">
-                                    <span className="bg-green-500/10 py-1 px-4 rounded-sm">فعال</span>
-                                </td>
-                                <td className="py-4">
-                                    <div className="flex gap-5 text-gray-500">
-                                        <button className="cursor-pointer hover:text-red-500/80 duration-200">
-                                            <icons.Ban />
-                                        </button>
-                                        <button className="cursor-pointer hover:text-red-500/80 duration-200">
-                                            <icons.Trash />
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                            {users?.map(user => {
+                                return (
+                                    <tr key={user._id} className="bg-darker text-sm rounded-md border-b border-gray-500">
+                                        <td className="flex gap-5 items-center py-6">
+                                            <div>
+                                                <img src="/public/images/user/user.jpg" alt="" className="size-12 rounded-full" />
+                                            </div>
+                                            <div>
+                                                <p>{user.username}</p>
+                                                <p className="mt-2">{user.email}</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p className="">{user.phone}</p>
+                                        </td>
+                                        <td className="py-4">
+                                            <div className="w-2/3">
+                                                <Selectbox options={roleSelectbox.slice(1)} defaultValue={user.role} />
+                                            </div>
+                                        </td>
+                                        <td className="py-4 text-green-500">
+                                            <span className="bg-green-500/10 py-1 px-4 rounded-sm">فعال</span>
+                                        </td>
+                                        <td className="py-4">
+                                            <div className="flex gap-5 text-gray-500">
+                                                <button className="cursor-pointer hover:text-red-500/80 duration-200">
+                                                    <icons.Ban />
+                                                </button>
+                                                <button onClick={() => showAlertDialog(null, user._id)}
+                                                    className="cursor-pointer hover:text-red-500/80 duration-200">
+                                                    <icons.Trash />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
                         </tbody>
                     </table>
 
                 </div>
             </div>
+            <AlertDialog isShowAlert={isShowAlert} alertDialogResponse={alertDialogResponse} />
         </main>
     )
 }
