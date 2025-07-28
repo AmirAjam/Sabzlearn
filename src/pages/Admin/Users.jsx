@@ -6,11 +6,22 @@ import { useEffect, useState } from "react"
 import { changeUserRole, deleteUser, getAllUsers } from "@/api/usersApi"
 import AlertDialog from "@/components/Ui/Alerts/AlertDialog"
 import PrimaryAlert from "@/components/Ui/Alerts/PrimaryAlert"
+import AddnewUser from "@/components/Admin/AddNewUser/AddnewUser"
+import Cover from "@/components/Ui/Cover/Cover"
 
 const Users = () => {
     const [users, setUsers] = useState(null)
     const [isShowAlert, setIsShowAlert] = useState(false)
     const [userId, setUserId] = useState(null)
+
+    const [alertDanger, setAlertDanger] = useState(false)
+    const [alertText, setAlertText] = useState(null)
+    const [alertTrigger, setAlertTrigger] = useState(0)
+
+    const [isShowAddUser, setIsShowAddUser] = useState(false)
+
+    // const [isShowCover, setIsShowCover] = useState(false)
+
 
     const roleSelectbox = [
         { id: 1, text: "همه", value: "ALL" },
@@ -37,8 +48,15 @@ const Users = () => {
     const handleDeleteUser = () => {
         deleteUser(userId)
             .then(res => {
-                if(res.status === 200){
-                    PrimaryAlert
+                if (res.status === 200) {
+                    setAlertTrigger(prev => prev + 1)
+                    setAlertDanger(false)
+                    setAlertText("کاربر با موفقیت از دیتابیس حذف شد.")
+                }
+                else {
+                    setAlertTrigger(prev => prev + 1)
+                    setAlertText("متاسفانه مشکلی در سرور به جود آمده. ):")
+                    setAlertDanger(true)
                 }
             })
         setUserId(null)
@@ -47,13 +65,28 @@ const Users = () => {
 
     const handleChangeUserRole = (id, role) => {
         changeUserRole(id, role)
-        .then(res => (console.log(res)))
+            .then(res => {
+                if (res.status === 200) {
+                    setAlertTrigger(prev => prev + 1)
+                    setAlertDanger(false)
+                    setAlertText("نقش کاربر با موفقیت تغییر کرد.")
+                }
+                else {
+                    setAlertTrigger(prev => prev + 1)
+                    setAlertText("متاسفانه مشکلی در سرور به جود آمده. ):")
+                    setAlertDanger(true)
+                }
+            })
+    }
+
+    const openAddUSer = () => {
+        setIsShowAlert(true)
     }
 
     useEffect(() => {
         getAllUsers()
             .then(res => setUsers(res.data))
-    }, [userId])
+    }, [userId,isShowAddUser])
 
 
 
@@ -75,7 +108,8 @@ const Users = () => {
                         <input type="text" placeholder="جستجو ..." className="border-gray-500 border
                         outline-0 py-1.5 px-4 rounded-sm focus:border-white"/>
                         <div className="w-36">
-                            <SeconderyButton icon="Plus" text="افزودن کاربر" />
+                            <SeconderyButton icon="Plus" text="افزودن کاربر"
+                                onClick={() => setIsShowAddUser(prev => !prev)} />
                         </div>
                     </div>
 
@@ -137,7 +171,9 @@ const Users = () => {
                 </div>
             </div>
             <AlertDialog isShowAlert={isShowAlert} alertDialogResponse={alertDialogResponse} />
-            
+            <PrimaryAlert danger={alertDanger} text={alertText} trigger={alertTrigger} />
+            <AddnewUser isShowAddUser={isShowAddUser} close={() => setIsShowAddUser(false)}/>
+            <Cover onClick={() => setIsShowAddUser(false)} coverStatus={isShowAddUser}/>
         </main>
     )
 }

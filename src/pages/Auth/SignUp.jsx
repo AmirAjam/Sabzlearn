@@ -1,9 +1,11 @@
 import AuthBox from '../../components/Auth/AuthBox'
 import AuthInput from '../../components/Auth/AuthInput'
+
 import { useForm, Controller } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup';
 import signupSchema from '../../schemas/signupSchema';
+
+import { Link, useNavigate } from 'react-router-dom'
 import PrimaryAlert from '../../components/Ui/Alerts/PrimaryAlert';
 import { useState } from 'react';
 import { registerUser } from '../../api/authApi';

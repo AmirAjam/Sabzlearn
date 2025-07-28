@@ -12,7 +12,7 @@ const PrimaryAlert = ({ danger, text, trigger }) => {
     }, [trigger])
 
     return (
-        <div className={`fixed bg-darker top-5 -left-52 -translate-x-1/2 flex gap-4 items-center py-3 px-5 w-82 group 
+        <div className={`fixed border-2 border-gray-600 overflow-hidden bg-darker top-5 -left-52 -translate-x-1/2 flex gap-4 items-center py-3 px-5 w-82 group 
             duration-300 rounded-lg ${danger ? "danger" : ""} 
             ${showAlert && trigger ? "left-1/2 sm:left-52" : "-left-52"} `}>
             <div>

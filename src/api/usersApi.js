@@ -29,7 +29,6 @@ const deleteUser = async (userId) => {
 }
 
 const changeUserRole = async (id, role) => {
-    console.log(id)
     try {
         const response = await axios.put(
             "/users/role",
