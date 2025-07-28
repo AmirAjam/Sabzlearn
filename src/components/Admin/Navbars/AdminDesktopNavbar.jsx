@@ -1,15 +1,15 @@
 import React from 'react'
 
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import icons from '../../../Icons';
 
 const AdminDesktopNavbar = () => {
     return (
         <nav className={`lg:block lg:fixed right-0 hidden top-0 bottom-0 bg-darker w-1/5 py-4 px-5`}>
             <div className='flex justify-between items-center'>
-                <div className='w-14 h-16 mx-auto'>
-                    <img className='size-full' src="/public/images/logo/panel-logo.png" alt="logo" />
-                </div>
+                <Link to="/" className='px-10 mx-auto'>
+                    <img className='size-full' src="/public/images/logo/footer-logo.png" alt="logo" />
+                </Link>
             </div>
             <ul className='mt-10 flex flex-col gap-2'>
                 <li className='flex items-center gap-4 '>
@@ -51,7 +51,7 @@ const AdminDesktopNavbar = () => {
                 </li>
                 <li className='flex items-center gap-4 '>
                     <NavLink
-                        to="category"
+                        to="/p-admin/category"
                         className={({ isActive }) =>
                             `w-full flex gap-4 items-center py-3 px-2 hover:bg-dark
                             duration-300 rounded-lg ${isActive ? 'bg-dark' : ''}`

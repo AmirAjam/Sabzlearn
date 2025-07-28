@@ -11,6 +11,7 @@ import AdminPanel from "./pages/Admin/AdminPanel";
 import Users from "./pages/Admin/Users";
 import AdminProducts from "./pages/Admin/AdminProducts";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AdminCategory from "./pages/Admin/AdminCategory";
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -28,6 +29,7 @@ const routes = [
             { path: "", element: <AdminDashboard /> },
             { path: "products", element: <AdminProducts /> },
             { path: "users", element: <Users /> },
+            { path: "category", element: <AdminCategory /> },
         ]
     },
 ]
