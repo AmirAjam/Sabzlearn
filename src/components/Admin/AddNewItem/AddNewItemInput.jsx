@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AddNewUserInput = ({ placeHolder, name, ...rest }) => {
+const AddNewItemInput = ({ placeHolder, name, ...rest }) => {
     return (
         <div className='mt-10 first:mt-8'>
             <label htmlFor="name" className='block'>{placeHolder}</label>
@@ -10,4 +10,4 @@ const AddNewUserInput = ({ placeHolder, name, ...rest }) => {
     )
 }
 
-export default AddNewUserInput
+export default AddNewItemInput

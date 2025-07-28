@@ -8,9 +8,9 @@ import { changeUserRole, deleteUser, getAllUsers } from "@/api/usersApi"
 
 import AlertDialog from "@/components/Ui/Alerts/AlertDialog"
 import PrimaryAlert from "@/components/Ui/Alerts/PrimaryAlert"
-import AddNewItem from "@/components/Admin/AddNewUser/AddNewItem"
+import AddNewItem from "@/components/Admin/AddNewItem/AddNewItem"
 import Cover from "@/components/Ui/Cover/Cover"
-import AddNewItemInput from "@/components/Admin/AddNewUser/AddNewItemInput"
+import AddNewItemInput from "@/components/Admin/AddNewItem/AddNewItemInput"
 import { Controller, useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import signupSchema from "@/schemas/signupSchema"
@@ -19,11 +19,12 @@ const Users = () => {
     const [users, setUsers] = useState(null)
     const [isShowAlert, setIsShowAlert] = useState(false)
     const [userId, setUserId] = useState(null)
+
     const [alertDanger, setAlertDanger] = useState(false)
     const [alertText, setAlertText] = useState(null)
     const [alertTrigger, setAlertTrigger] = useState(0)
-    const [isShowAddUser, setIsShowAddUser] = useState(false)
 
+    const [isShowAddUser, setIsShowAddUser] = useState(false)
 
     const { control, handleSubmit, reset } = useForm({
         resolver: yupResolver(signupSchema),
@@ -202,20 +203,24 @@ const Users = () => {
             <PrimaryAlert danger={alertDanger} text={alertText} trigger={alertTrigger} />
             <AddNewItem
                 isShowAddUser={isShowAddUser}
-                close={() => {
-                    setIsShowAddUser(false)
-                    reset()
-                }}
                 title="اضافه کردن کاربر"
                 onSubmit={handleSubmit(onSubmit, onError)}
             >
 
-                <Controller name="username" control={control} render={({ field }) => <AddNewItemInput placeHolder="نام کاربری" {...field} />} />
-                <Controller name="phone" control={control} render={({ field }) => <AddNewItemInput placeHolder="شماره موبایل" {...field} />} />
-                <Controller name="email" control={control} render={({ field }) => <AddNewItemInput placeHolder="ایمیل" {...field} />} />
-                <Controller name="password" control={control} render={({ field }) => <AddNewItemInput placeHolder="رمز عبور" {...field} />} />
+                <Controller name="username" control={control} render={({ field }) =>
+                    <AddNewItemInput placeHolder="نام کاربری" {...field} />} />
+
+                <Controller name="phone" control={control} render={({ field }) => 
+                    <AddNewItemInput placeHolder="شماره موبایل" {...field} />} />
+
+                <Controller name="email" control={control} render={({ field }) => 
+                    <AddNewItemInput placeHolder="ایمیل" {...field} />} />
+
+                <Controller name="password" control={control} render={({ field }) => 
+                    <AddNewItemInput placeHolder="رمز عبور" {...field} />} />
 
             </AddNewItem>
+            
             <Cover onClick={() => setIsShowAddUser(false)} coverStatus={isShowAddUser} />
         </main>
     )
