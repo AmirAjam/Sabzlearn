@@ -1,11 +1,11 @@
 import icons from "../../Icons"
 
-const AdminHeader = () => {
+const AdminHeader = ({openMobileNav}) => {
   return (
     <header className='mt-5'>
       <div className='bg-darker py-4 px-4 rounded-lg flex items-center justify-between md:px-5'>
         <div className='flex gap-5 items-center'>
-          <icons.Menu className='text-2xl lg:hidden' />
+          <icons.Menu className='text-2xl lg:hidden' onClick={openMobileNav}/>
           <icons.Search className='text-2xl' />
           <span className='hidden sm:block'>جستجو(/+Ctrl)</span>
         </div>

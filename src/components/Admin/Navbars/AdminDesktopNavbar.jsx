@@ -39,7 +39,7 @@ const AdminDesktopNavbar = () => {
                 </li>
                 <li className='flex items-center gap-4 '>
                     <NavLink
-                        to="/add-product"
+                        to="/p-admin/add-product"
                         className={({ isActive }) =>
                             `w-full flex gap-4 items-center py-3 px-2 hover:bg-dark
                             duration-300 rounded-lg ${isActive ? 'bg-dark' : ''}`
@@ -75,7 +75,7 @@ const AdminDesktopNavbar = () => {
                 </li>
                 <li className='flex items-center gap-4 '>
                     <NavLink
-                        to="comments"
+                        to="/p-admin/comments"
                         className={({ isActive }) =>
                             `w-full flex gap-4 items-center py-3 px-2 hover:bg-dark
                             duration-300 rounded-lg ${isActive ? 'bg-dark' : ''}`

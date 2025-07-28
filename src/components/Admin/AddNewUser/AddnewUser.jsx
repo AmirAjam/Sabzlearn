@@ -9,7 +9,7 @@ import { registerUser } from '@/api/authApi';
 import PrimaryAlert from '@/components/Ui/Alerts/PrimaryAlert';
 
 
-const AddnewUser = ({ isShowAddUser,close }) => {
+const AddNewUser = ({ isShowAddUser,close }) => {
     const [alertText, setAlertText] = useState("")
     const [alertTrigger, setAlertTrigger] = useState(0)
     const [alertDanger, setAlertDanger] = useState(true)
@@ -119,4 +119,4 @@ const AddnewUser = ({ isShowAddUser,close }) => {
     )
 }
 
-export default AddnewUser
+export default AddNewUser
