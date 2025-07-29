@@ -5,7 +5,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { useState } from "react"
 
 const Selectbox = ({ changeUserRole, userId, title, options, defaultValue }) => {
     const handleChange = (val) => {

@@ -9,6 +9,9 @@ import AlertDialog from '@/components/Ui/Alerts/AlertDialog'
 import PrimaryAlert from '@/components/Ui/Alerts/PrimaryAlert'
 import SeconderyButton from '@/components/Ui/Buttons/SeconderyButton'
 import Cover from '@/components/Ui/Cover/Cover'
+
+import CustomDialog from '@/components/Ui/Alerts/CustomDialog'
+
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -48,12 +51,16 @@ const AdminCategory = () => {
         deleteCategory(categoryId).then((res) => {
             if (res.status === 200) {
                 refreshCategories()
-                setAlertDanger(false)
-                setAlertText('دسته بندی با موفقیت حذف شد')
-                setAlertTrigger((prev) => prev + 1)
+                showSuccessAlert('دسته بندی با موفقیت حذف شد')
             }
         })
         showAlertDiaolog(null)
+    }
+
+    const showSuccessAlert = (text) => {
+        setAlertDanger(false)
+        setAlertText(text)
+        setAlertTrigger((prev) => prev + 1)
     }
 
     const onSubmit = async (data) => {
@@ -142,7 +149,10 @@ const AdminCategory = () => {
 
                                         <td className='block sm:table-cell py-4'>
                                             <div className='flex gap-5 text-gray-500'>
-                                                <AdminButton text='ویرایش' danger={false} />
+                                                {/* <AdminButton text='ویرایش' danger={false} /> */}
+                                                <CustomDialog categoryId={category._id}
+                                                    refreshCategories={refreshCategories}
+                                                    showSuccessAlert={showSuccessAlert} />
                                                 <AdminButton
                                                     text='حذف'
                                                     danger={true}
