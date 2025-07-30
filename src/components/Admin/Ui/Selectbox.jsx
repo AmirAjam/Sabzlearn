@@ -21,8 +21,8 @@ const Selectbox = ({ changeUserRole, userId, title, options, defaultValue }) => 
             </SelectTrigger>
             <SelectContent className="bg-dark">
                 {options.map(option =>
-                    <SelectItem key={option.id} value={option.value} className="data-[highlighted]:bg-gray-600! cursor-pointer">
-                        {option.text}
+                    <SelectItem key={option._id} value={option.name} className="data-[highlighted]:bg-gray-600! cursor-pointer">
+                        {option.title}
                     </SelectItem>)}
             </SelectContent>
         </Select>

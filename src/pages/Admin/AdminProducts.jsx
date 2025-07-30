@@ -5,11 +5,16 @@ import { deleteCourse, getAllCourses } from '@/api/coursesApi'
 import { Link } from 'react-router-dom'
 import AdminButton from '@/components/Admin/Ui/AdminButton'
 import AlertDialog from '@/components/Ui/Alerts/AlertDialog'
+import PrimaryAlert from '@/components/Ui/Alerts/PrimaryAlert'
 
 const AdminProducts = () => {
   const [courses, setCourses] = useState(null)
   const [isShowDialogAlert, setIsShowDialogAlert] = useState(null)
   const [courseID, setCourseID] = useState(null)
+
+  const [alertDanger, setAlertDanger] = useState(false)
+  const [alertText, setAlertText] = useState(null)
+  const [alertTrigger, setAlertTrigger] = useState(0)
 
   const alertDialogResponse = (res) => {
     res ? handlerDeleteCourse() : setIsShowDialogAlert(false)
@@ -18,11 +23,21 @@ const AdminProducts = () => {
   const handlerDeleteCourse = () => {
     deleteCourse(courseID)
       .then(res => {
+        refreshCoursesData()
         setCourseID(null)
         setIsShowDialogAlert(false)
-        refreshCoursesData()
+        
+        if (res.status === 200) {
+          setAlertDanger(false)
+          setAlertText("دوره مورد نظر با موفقیت حذف شد.")
+          setAlertTrigger(prev => prev + 1)
+        }
+        else {
+          setAlertDanger(true)
+          setAlertText("مشکلی در سرور به وحود آمده.لطفا بعدا تلاش کنید")
+          setAlertTrigger(prev => prev + 1)
+        }
       })
-
   }
 
   useEffect(() => {
@@ -106,9 +121,10 @@ const AdminProducts = () => {
             </tbody>
           </table>
         </div>
-      </div>\
+      </div>
 
       <AlertDialog isShowAlert={isShowDialogAlert} alertDialogResponse={alertDialogResponse} />
+      <PrimaryAlert danger={alertDanger} text={alertText} trigger={alertTrigger} />
       {/*  />
 
       {isShowAddUser ?
@@ -119,7 +135,6 @@ const AdminProducts = () => {
         :
         <Cover coverStatus={isShowCover} />}
 
-      <PrimaryAlert danger={alertDanger} text={alertText} trigger={alertTrigger} />
 
       <AddNewItem
         isShowAddUser={isShowAddUser}

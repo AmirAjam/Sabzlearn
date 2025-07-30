@@ -37,16 +37,16 @@ const Users = () => {
     })
 
     const roleSelectbox = [
-        { id: 1, text: "همه", value: "ALL" },
-        { id: 2, text: "ادمین", value: "ADMIN" },
-        { id: 3, text: "کاربر", value: "USER" },
-        { id: 4, text: "مدرس", value: "TEACHER" }
+        { _id: 1, title: "همه", name: "ALL" },
+        { _id: 2, title: "ادمین", name: "ADMIN" },
+        { _id: 3, title: "کاربر", name: "USER" },
+        { _id: 4, title: "مدرس", name: "TEACHER" }
     ]
 
     const userStatusSelectbox = [
-        { id: 1, text: "همه", value: "all" },
-        { id: 2, text: "فعال", value: "active" },
-        { id: 3, text: "غیرفعال", value: "inactive" }
+        { _id: 1, title: "همه", name: "all" },
+        { _id: 2, title: "فعال", name: "active" },
+        { _id: 3, title: "غیرفعال", name: "inactive" }
     ]
 
     const alertDialogResponse = res => {

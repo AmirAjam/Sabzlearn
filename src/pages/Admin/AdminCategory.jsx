@@ -20,9 +20,11 @@ const AdminCategory = () => {
     const [isShowCover, setIsShowCover] = useState(false)
     const [isShowDialogAlert, setIsShowDialogAlert] = useState(false)
     const [categoryId, setCategoryId] = useState(null)
+
     const [alertDanger, setAlertDanger] = useState(false)
     const [alertText, setAlertText] = useState(null)
     const [alertTrigger, setAlertTrigger] = useState(0)
+    
     const [isShowAddUser, setIsShowAddUser] = useState(false)
 
     const {
