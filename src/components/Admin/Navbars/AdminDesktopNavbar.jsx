@@ -75,6 +75,30 @@ const AdminDesktopNavbar = () => {
                 </li>
                 <li className='flex items-center gap-4 '>
                     <NavLink
+                        to="/p-admin/articles"
+                        className={({ isActive }) =>
+                            `w-full flex gap-4 items-center py-3 px-2 hover:bg-dark
+                            duration-300 rounded-lg ${isActive ? 'bg-dark' : ''}`
+                        }
+                    >
+                        <icons.Articles className='text-2xl' />
+                        <span className='font-Vazirmatn-Medium'>مقالات</span>
+                    </NavLink>
+                </li>
+                <li className='flex items-center gap-4 '>
+                    <NavLink
+                        to="/p-admin/add-article"
+                        className={({ isActive }) =>
+                            `w-full flex gap-4 items-center py-3 px-2 hover:bg-dark
+                            duration-300 rounded-lg ${isActive ? 'bg-dark' : ''}`
+                        }
+                    >
+                        <icons.AddArticle className='text-2xl' />
+                        <span className='font-Vazirmatn-Medium'> افزودن مقاله</span>
+                    </NavLink>
+                </li>
+                <li className='flex items-center gap-4 '>
+                    <NavLink
                         to="/p-admin/comments"
                         className={({ isActive }) =>
                             `w-full flex gap-4 items-center py-3 px-2 hover:bg-dark

@@ -16,7 +16,7 @@ const Selectbox = ({ changeUserRole, userId, title, options, defaultValue }) => 
             <SelectTrigger
                 className="w-full border-gray-600 border-2 focus-visible:outline-none focus-visible:ring-0 
                 focus-visible:ring-offset-0 focus-visible:border-gray-600 focus-visible:border-2 py-5 text-white
-              bg-dark! cursor-pointer sm:text-base ">
+              bg-darker! cursor-pointer sm:text-base ">
                 <SelectValue placeholder={title} />
             </SelectTrigger>
             <SelectContent className="bg-dark">

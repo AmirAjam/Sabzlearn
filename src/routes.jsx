@@ -13,6 +13,7 @@ import AdminProducts from "./pages/Admin/AdminProducts";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminCategory from "./pages/Admin/AdminCategory";
 import AdminAddCourse from "./pages/Admin/AdminAddCourse";
+import AdminArticles from "./pages/Admin/AdminArticles";
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -32,6 +33,8 @@ const routes = [
             { path: "users", element: <Users /> },
             { path: "category", element: <AdminCategory /> },
             { path: "add-product", element: <AdminAddCourse /> },
+            { path: "articles", element: <AdminArticles /> },
+            { path: "add-article", element: <AdminAddCourse /> },
         ]
     },
 ]

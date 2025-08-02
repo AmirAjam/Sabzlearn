@@ -14,10 +14,10 @@ import { TiStarFullOutline } from "react-icons/ti";
 import { HiOutlineUsers, HiOutlineHome } from "react-icons/hi2";
 import { LuCodeXml, LuMessageSquareMore } from "react-icons/lu";
 import { GrSecure } from "react-icons/gr";
-import { AiOutlinePython } from "react-icons/ai";
+import { AiOutlinePython,AiOutlineFileAdd  } from "react-icons/ai";
 import { TbArrowLeft } from "react-icons/tb";
 import { FaTelegramPlane, FaLinkedinIn,FaBan } from "react-icons/fa";
-import { PiInstagramLogoFill } from "react-icons/pi";
+import { PiInstagramLogoFill,PiArticle  } from "react-icons/pi";
 import { BsFunnel, BsTelephone, BsDatabaseFillAdd } from "react-icons/bs";
 import { BiSort } from "react-icons/bi";
 import { IoIosCloseCircleOutline, IoIosArrowDown, IoIosNotificationsOutline } from "react-icons/io";
@@ -78,6 +78,8 @@ const icons = {
     Category:MdCategory,
     Plus:GoPlus,
     Ban:FaBan,
+    Articles:PiArticle,
+    AddArticle:AiOutlineFileAdd
 }
 
 export default icons
