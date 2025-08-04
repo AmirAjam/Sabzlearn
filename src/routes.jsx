@@ -14,6 +14,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminCategory from "./pages/Admin/AdminCategory";
 import AdminAddCourse from "./pages/Admin/AdminAddCourse";
 import AdminArticles from "./pages/Admin/AdminArticles";
+import AdminAddArticle from "./pages/Admin/AdminAddArticle";
 
 const routes = [
     { path: "/", element: <Home /> },
@@ -34,7 +35,7 @@ const routes = [
             { path: "category", element: <AdminCategory /> },
             { path: "add-product", element: <AdminAddCourse /> },
             { path: "articles", element: <AdminArticles /> },
-            { path: "add-article", element: <AdminAddCourse /> },
+            { path: "add-article", element: <AdminAddArticle /> },
         ]
     },
 ]

@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Vazirmatn-Bold";
+    src: url(../../../public/fonts/Vazirmatn-Bold.woff2);
+}
+
+@font-face {
+    font-family: "Vazirmatn-Regular";
+    src: url(../../../public/fonts/Vazirmatn-Regular.woff2);
+}
+
 .custom-scrollbar::-webkit-scrollbar-thumb {
     border-radius: .5rem;
     --tw-bg-opacity: 1;
@@ -8,7 +18,7 @@
     width: 4px;
 }
 
-.first-section-title::after{
+.first-section-title::after {
     content: " ";
     position: absolute;
     bottom: 0;
@@ -21,4 +31,76 @@
     -webkit-clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%);
     z-index: -1;
+}
+
+/* ckEditor Styles */
+
+.ck.ck-editor__main>.ck-editor__editable {
+    background-color: #242a38 !important;
+    color: #ffffff;
+    border: #6a7282 solid 1px !important;
+    direction: rtl !important;
+    text-align: right !important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.ck-content {
+    font-family: "Vazirmatn-Regular" !important;
+}
+
+.ck-content h1 {
+    font-family: "Vazirmatn-Bold";
+    font-size: 20px;
+}
+.ck-content h2 {
+    font-family: "Vazirmatn-Bold";
+    font-size: 18px;
+}
+.ck-content h3 {
+    font-family: "Vazirmatn-Bold";
+    font-size: 17px;
+}
+.ck-content h4 {
+    font-family: "Vazirmatn-Bold";
+    font-size: 16px;
+}
+.ck-content h5 {
+    font-size: 14px;
+}
+.ck-content h6 {
+    font-size: 12px;
+}
+
+.ck-content a {
+    cursor: pointer;
+    color: #0a97d4;
+}
+
+
+.ck-sticky-panel__content{
+    background-color: #242a38 !important;
+    color: #ffffff;
+    border: none !important;
+}
+
+.ck-toolbar_grouping {
+    background-color: #242a38 !important;
+    color: #ffffff;
+    border: #6a7282 solid 1px !important;
+    border-bottom: none !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+
+.ck-toolbar__items {
+}
+
+.ck-button {
+    background-color: #242a38 !important;
+    color: #ffffff !important;
+}
+
+.ck .ck-powered-by {
+    display: none;
 }

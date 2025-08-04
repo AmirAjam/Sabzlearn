@@ -1,76 +1,63 @@
+import AddNewItemInput from '@/components/Admin/AddNewItem/AddNewItemInput'
+import AdminTitle from '@/components/Admin/Ui/AdminTitle'
+import Selectbox from '@/components/Admin/Ui/Selectbox'
+import PrimaryButton from '@/components/Ui/Buttons/PrimaryButton'
+import Editor from '@/components/Ui/Editor/Editor'
 import React from 'react'
 
-const ADminAddArticle = () => {
+const AdminAddArticle = () => {
+    const courseStatusSelectbox = [
+        { _id: 1, title: "منتشر شده", name: "published" },
+        { _id: 2, title: "پیش نویس", name: "draft" }
+    ]
     return (
-        <main className=''>
+        <main className='pb-12'>
             <div className="container">
                 <div className='flex flex-wrap gap-5 justify-between items-center'>
                     <AdminTitle title="اضافه کردن دوره" />
                     <div className='w-32 mt-10'>
-                        <PrimaryButton text="انتشار دوره" />
+                        <PrimaryButton text="انتشار مقاله" />
                     </div>
                 </div>
 
                 <div className='mt-12 flex flex-wrap justify-between gap-20 md:gap-0'>
-                    <div className='md:w-60/100 w-full bg-darker p-4 rounded-lg'>
+                    <div className='md:w-60/100 w-full bg-darker px-4 py-2 rounded-lg'>
                         <h3 className='text-xl'>اطلاعات محصول</h3>
-                        <div className='mt-1'>
-                            <div>
-                                <AddNewItemInput name="title" placeHolder="عنوان دوره" />
-                            </div>
-                        </div>
-                        <div className='mt-4 flex flex-wrap justify-between gap-8'>
-                            <div className='mt-1 w-45/100'>
-                                <div className=''>
-                                    <AddNewItemInput name="description" placeHolder="توضیحات دوره" />
-                                </div>
-                            </div>
-                            <div className='mt-1 w-45/100'>
-                                <div className=''>
-                                    <AddNewItemInput name="link" placeHolder="لینک کوتاه دوره" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className='mt-12 flex justify-between gap-18'>
-                            <div className='w-1/3'>
-                                <label htmlFor="code" className='mb-3.5 block'>وضعیت</label>
-                                <Selectbox options={courseStatusSelectbox} defaultValue={"inactive"} />
-                            </div>
-                            <div className='w-2/3'>
-                                <label htmlFor="count" className='mb-3.5 block'>دسته بندی</label>
-                                <div className='w-full'>
-                                    {categories &&
-                                        <Selectbox options={categories} defaultValue={categories[0].name} />
-                                    }
-                                </div>
-                            </div>
-                        </div>
 
                         <div className='mt-12'>
                             <label htmlFor="count" className='mb-3.5 block'>عکس اصلی</label>
-                            <div className='h-72 border-2 border-dashed border-gray-500 rounded-lg flex justify-center items-center'>
+                            <div className='h-52 border-2 border-dashed border-gray-500 rounded-lg flex justify-center items-center'>
                                 <div className='w-32'>
                                     <PrimaryButton text="انتخاب از فایل ها" />
                                 </div>
                             </div>
                         </div>
+                        <div className='mt-20 mb-10'>
+                            <Editor />
+                        </div>
                     </div>
 
-                    <div className='md:w-35/100 w-full bg-darker p-4 rounded-lg h-fit'>
-                        <h3 className='text-xl'>قیمت گذاری</h3>
-                        <div className='mt-10'>
-                            <label htmlFor="title" className='mb-3.5 block'>قیمت پایه</label>
-                            <AddNewItemInput name="title" placeholder="قیمت محصول" />
+
+
+                    <div className='md:w-35/100 w-full bg-darker px-4 pt-3 pb-8 rounded-lg h-fit'>
+                        <h3 className='text-xl'>اطلاعات مقاله</h3>
+                        <div>
+                            <AddNewItemInput name="title" placeHolder="عنوان مقاله" />
                         </div>
-                        <div className='mt-10'>
-                            <label htmlFor="title" className='mb-3.5 block'>تخفیف (اختیاری)</label>
-                            <AddNewItemInput name="title" placeholder="تخفیف محصول" />
+
+                        <div className='w-full mt-12'>
+                            <AddNewItemInput name="description" placeHolder="توضیحات مقاله" />
                         </div>
-                        <div className='mt-16 flex justify-between items-center'>
-                            <p htmlFor="after-discount" className=''> قیمت نهایی : </p>
-                            <p className='text-xl font-Vazirmatn-Bold'>۱۰,۰۰۰,۰۰۰</p>
+
+                        <div className='w-full mt-12'>
+                            <AddNewItemInput name="link" placeHolder="لینک کوتاه دوره" />
                         </div>
+
+                        <div className='mt-12'>
+                            <label htmlFor="code" className='mb-3.5 block'>وضعیت</label>
+                            <Selectbox options={courseStatusSelectbox} defaultValue={"draft"} />
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -78,4 +65,4 @@ const ADminAddArticle = () => {
     )
 }
 
-export default ADminAddArticle
+export default AdminAddArticle
